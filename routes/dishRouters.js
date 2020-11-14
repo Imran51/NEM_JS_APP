@@ -12,10 +12,10 @@ router.route('/')
     next()
 })
 .get((req,res,next) => {
-    res.end("Sending All the available dishes to you!");
+    res.end("Will send All the available dishes to you!");
 })
 .post( (req,res,next) => {
-    res.end("Adding new dishes, dish name: " + req.body.name + ' full description: ' + req.body.description);
+    res.end("Adding new dishes with dish name: " + req.body.name + ' and dish details: ' + req.body.description);
 })
 .put((req,res,next) => {
     res.statusCode = 403
@@ -32,14 +32,14 @@ router.route('/:dishId')
 })
 .post((req,res,next) => {
     res.statusCode = 403
-    res.end("This feature is not supported for /dishes/" + req.params.dishId);
+    res.end("POST feature is not supported for /dishes/" + req.params.dishId);
 })
 .put((req,res,next) => {
-    res.write('Updating dish for id: ' + req.params.dishId);
-    res.end('Will update the dish name: ' + req.body.name + ' and description: ' + req.body.description);
+    res.write('Updating the dish: ' + req.params.dishId);
+    res.end('Will update the dish name: ' + req.body.name + ' with description: ' + req.body.description);
 })
 .delete((req,res,next) => {
-    res.end("Deleting requested dish for id: " + req.params.dishId + 'from the database');
+    res.end("Deleting requested dish: " + req.params.dishId);
 });
 
 
